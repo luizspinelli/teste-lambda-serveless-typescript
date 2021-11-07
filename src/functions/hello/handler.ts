@@ -4,7 +4,7 @@ import { middyfy } from '@libs/lambda';
 
 import schema from './schema';
 
-const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event, context, callback,) => {
+const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async () => {
 
   return formatJSONResponse({
     statusCode: 200,
