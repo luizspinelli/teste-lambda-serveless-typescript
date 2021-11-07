@@ -13,7 +13,7 @@ const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async () => {
       'Access-Control-Allow-Credentials': true,
     },
     body: {
-      message: `Hello lambda2`
+      message: process.env.TEXT
     }
   });
 }

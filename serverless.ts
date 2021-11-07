@@ -1,4 +1,5 @@
 import type { AWS } from '@serverless/typescript';
+import 'dotenv/config'
 
 import hello from '@functions/hello';
 import teste from '@functions/teste2';
@@ -17,7 +18,7 @@ const serverlessConfiguration: AWS = {
       platform: 'node',
     },
   },
-  plugins: ['serverless-esbuild'],
+  plugins: ['serverless-esbuild', "serverless-offline", "serverless-dotenv-plugin"],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -28,6 +29,7 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      TEXT: process.env.TEXT
     },
     lambdaHashingVersion: '20201221',
   },
