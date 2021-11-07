@@ -20,7 +20,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: echo TEXT=${{secrets.TEXT}} > .env
-      - run: echo TEXT2=${{secrets.TEXT2}} > .env
+      - run: echo TEXT2=${{secrets.TEXT2}} >> .env
       - name: serverless deploy
         uses: serverless/github-action@master
         with:
